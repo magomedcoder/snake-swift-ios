@@ -88,6 +88,11 @@ struct SnakeGame: View {
         }
     }
     
+    private func cell(at position: Position) -> some View {
+        Rectangle()
+            .cellStyle(cellStyle, color: vm.color(at: position))
+            .aspectRatio(1, contentMode: .fit)
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
