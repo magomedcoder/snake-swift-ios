@@ -15,6 +15,9 @@ struct RootApplication: View {
     @EnvironmentObject
     private var selectedIndexVm: SegmentedPicker.ViewModel
     
+    @EnvironmentObject
+    private var multiplayerViewModel: MultiplayerViewModel
+    
     @State private var showMenu = false
     
     private var startMenu: some View {
@@ -56,6 +59,7 @@ struct RootApplication: View {
         GeometryReader { geometry in
             ZStack {
                 Color.black.edgesIgnoringSafeArea(.all)
+                StartMenu(multiplayerViewModel: multiplayerViewModel)
                 if !showMenu {
                     SnakeGame(vm: snakeViewModel, didLose: $showMenu)
                 }

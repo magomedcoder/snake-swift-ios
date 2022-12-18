@@ -16,6 +16,9 @@ struct SnakeApp: App {
     @StateObject
     private var selectedIndexVm: SegmentedPicker.ViewModel = .init()
     
+    @StateObject
+    private var multiplayerViewModel: MultiplayerViewModel = .init()
+    
     var body: some Scene {
         WindowGroup {
             Text("Загрузка...")
@@ -50,6 +53,7 @@ struct SnakeApp: App {
                         rootView: RootApplication()
                             .environmentObject(snakeViewModel)
                             .environmentObject(selectedIndexVm)
+                            .environmentObject(multiplayerViewModel)
                     )
                 }
         }
